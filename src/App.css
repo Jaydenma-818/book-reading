@@ -1,0 +1,334 @@
+/* ---- shared layout ---- */
+
+.centered {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* ---- login ---- */
+
+.login-card {
+  width: min(380px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.6rem;
+}
+
+.login-card .logo {
+  align-self: flex-start;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+button.google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+  font-weight: 600;
+}
+
+button.google:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--text) 5%, transparent);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.switch {
+  text-align: center;
+}
+
+/* ---- header ---- */
+
+.topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* ---- stats ---- */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ---- toolbar ---- */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filters {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.chip {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+}
+
+.chip.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
+/* ---- form ---- */
+
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.book-form .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* ---- book list ---- */
+
+.books {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.book-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.badge {
+  flex: none;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.badge.reading {
+  color: #1f5f45;
+  background: #e2f2ea;
+  border-color: #c3e3d4;
+}
+
+.badge.finished {
+  color: #2e4a7a;
+  background: #e5ecf8;
+  border-color: #cbd9ee;
+}
+
+.badge.want_to_read {
+  color: #6c5a22;
+  background: #f6efdc;
+  border-color: #e7dcbe;
+}
+
+@media (prefers-color-scheme: dark) {
+  .badge.reading {
+    color: #9fd8bd;
+    background: #1c2c26;
+    border-color: #2c443a;
+  }
+
+  .badge.finished {
+    color: #b3c8ea;
+    background: #1e2533;
+    border-color: #2f3b4f;
+  }
+
+  .badge.want_to_read {
+    color: #e0cf9c;
+    background: #2a2618;
+    border-color: #413a24;
+  }
+}
+
+.rating {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: #b8860b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .rating {
+    color: #e0b84f;
+  }
+}
+
+.rating.muted {
+  color: var(--muted);
+  letter-spacing: normal;
+}
+
+.rating .dim {
+  color: var(--border);
+}
+
+.note {
+  font-size: 0.92rem;
+  color: var(--text);
+  white-space: pre-wrap;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--border);
+}
+
+.book-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.empty {
+  color: var(--muted);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+@media (max-width: 520px) {
+  .book-form .row {
+    grid-template-columns: 1fr;
+  }
+
+  .toolbar {
+    align-items: stretch;
+  }
+}
+
+/* ---- setup notice (shown when .env is not filled in yet) ---- */
+
+.setup-card {
+  width: min(520px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.6rem;
+}
+
+.setup-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.setup-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.setup-steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.92rem;
+}
+
+.setup-card code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85em;
+  background: color-mix(in srgb, var(--text) 7%, transparent);
+  border-radius: 4px;
+  padding: 0.1rem 0.32rem;
+}
